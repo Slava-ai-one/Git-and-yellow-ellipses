@@ -3,7 +3,7 @@ from random import randint
 
 from PyQt6.QtWidgets import QWidget, QApplication, QPushButton
 from PyQt6.QtGui import QPainter, QColor
-from PyQt6.QtCore import QRectF
+from PyQt6.QtCore import QRectF, QPointF
 from git_interface import initUI
 
 
@@ -12,16 +12,17 @@ class Circles_by_orange(QWidget):
         super().__init__()
         initUI(self)
 
-    def draw_Event(self, event):
+    def paintEvent(self, event):
         if self.do_paint:
             painter = QPainter(self)
             painter.begin(self)
-            painter.setBrush(self.color)
-            diameter = randint(20, 400)
-            x = randint(0, int(800 - diameter))
-            y = randint(0, int(600 - diameter))
-            form = QRectF(x, y, int((x + diameter) - 10), int((y + diameter) - 10))
-            painter.drawEllipse(form)
+            count = randint(1, 5)
+            for _ in range(count):
+                painter.setBrush(self.color)
+                radius = randint(20, 200)
+                x = randint(int(10 + radius), int(800 - radius))
+                y = randint(int(10 + radius), int(600 - radius))
+                painter.drawEllipse(QPointF(x, y), radius, radius)
             painter.end()
 
         self.do_paint = False
