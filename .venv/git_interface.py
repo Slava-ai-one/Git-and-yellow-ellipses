@@ -1,3 +1,6 @@
+from PyQt6.QtWidgets import QWidget, QApplication, QPushButton
+from PyQt6.QtGui import QColor
+
 def initUI(self):
     self.setGeometry(100, 100, 800, 600)
     self.setWindowTitle('Git и желтые окружности')

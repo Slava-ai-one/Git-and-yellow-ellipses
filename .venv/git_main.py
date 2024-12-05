@@ -9,12 +9,12 @@ from git_interface import initUI
 
 class Circles_by_orange(QWidget):
     def __init__(self):
-        super().__init__(self)
+        super().__init__()
         initUI(self)
 
     def draw_Event(self, event):
         if self.do_paint:
-            painter = QPainter()
+            painter = QPainter(self)
             painter.begin(self)
             painter.setBrush(self.color)
             diameter = randint(20, 400)
@@ -37,6 +37,6 @@ class Circles_by_orange(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Weapons_base_with_grafic_interface()
+    ex = Circles_by_orange()
     ex.show()
     sys.exit(app.exec())
