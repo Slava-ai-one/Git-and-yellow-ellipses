@@ -18,7 +18,7 @@ class Circles_by_orange(QWidget):
             painter.begin(self)
             count = randint(1, 5)
             for _ in range(count):
-                painter.setBrush(self.color)
+                painter.setPen(self.color)
                 radius = randint(20, 200)
                 x = randint(int(10 + radius), int(800 - radius))
                 y = randint(int(10 + radius), int(600 - radius))
